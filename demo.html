@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+		//反转数组
+		function reversalArr(arr){
+			var count=parseInt(arr.length/2);
+			for(var i=0;i<count;i++){
+				var temp=arr[i];
+				arr[i]=arr[arr.length-1-i];
+				arr[arr.length-1-i]=temp;
+			}
+			return arr;
+		}
+		console.log(reversalArr([1,2,3,4,6,7]));
+		//冒泡排序
+		function bubbleSort(arr){
+			for(var i=0;i<arr.length-1;i++){
+				for(var j=0;j<arr.length-1-i;j++){
+					if(arr[j]>arr[j+1]){
+						var temp=arr[j];
+						arr[j]=arr[j+1]
+						arr[j+1]=temp;
+					}
+				}
+			}
+			return arr;
+		}
+		console.log(bubbleSort([3,1,53,52,32,13,43]));
+		//统计学生分数
+		function censusStuMark(){
+			var stuNum=parseInt(prompt('请输入学生个数：'));
+			var sum=0,max=0,min=0,stuMarkArr=[];
+			for(var i=0;i<stuNum;i++){
+				var stuMark=parseInt(prompt('请输入第'+(i+1)+'个学生的分数：'));
+				stuMarkArr[stuMarkArr.length]=stuMark;
+			}
+			max=stuMarkArr[0];
+			min=stuMarkArr[0];
+			for(var i=0;i<stuMarkArr.length;i++){
+				sum+=stuMarkArr[i];
+				if(max<stuMarkArr[i]){
+					max=stuMarkArr[i];
+				}
+				if(min>stuMarkArr[i]){
+					min=stuMarkArr[i];
+				}
+			}
+			console.log('总分：'+sum+'分');
+			console.log('平均分：'+sum/stuMarkArr.length+'分');
+			console.log('最高分：'+max+'分');
+			console.log('最低分：'+min+'分');
+		}
+		censusStuMark();
+	</script>
+</body>
+</html>
